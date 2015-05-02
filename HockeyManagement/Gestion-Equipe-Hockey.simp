@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="6.51" multi-file="no">
+  <meta>
+    <name>Gestion Equipe Hockey</name>
+    <authors> Charles Marchand</authors>
+    <description>Votre programme doit contenir au moins les classes suivantes, en plus de la classe de votre programme principal et de vos fenêtres (notez que les classes de base et les interfaces sont de votre cru) :
+o Joueur
+o Coach
+o Assistant
+o Équipe
+o Formation Attaquante
+o Formation Défensive
+- Un joueur peut être Attaquant (Centre, Ailier Gauche, Ailier Droit), Défensif ou Gardien. Il devra contenir les mêmes informations qu’un joueur sur le site de la LNH, c’est-à-dire son numéro, taille, poids, tire, date de naissance et lieu de naissance, de même que sa position et l’équipe à laquelle il fait partie. N’implémentez pas les statistiques par joueur, seulement sa fiche descriptive.
+- Un coach a la capacité de recruter un joueur, en enlever un, etc. C’est sur sa page à lui que vous pouvez apporter des modifications à la composition de son équipe. Il est responsable d’effectuer les
+Projet
+Programmation II
+420-264-CH
+formations attaquantes et défensives, à partir d’une liste de joueurs disponibles (ceux qui ne font partie d’aucune équipe).
+- Un assistant a des pouvoirs similaires au coach, mais n’a pas la possibilité d’ajouter, enlever des joueurs à l’équipe.
+- Une équipe a obligatoirement un nom, un coach et un assistant. C’est au coach d’ajouter ou enlever des joueurs à l’équipe une fois qu’elle est créée. Il n’y a pas de quantité maximale de joueurs pour l’équipe. Cependant, elle doit être composée d’un minimum de 4 trios offensifs, 4 duos défensifs et 2 gardiens afin que l’équipe soit complète. Une équipe doit également avoir un seul capitaine, lequel est un joueur qui fait partie de l’équipe.
+- Une formation attaquante est composée de 3 joueurs. Cette formation a un rang (de 1 à 4 seulement).
+- Une formation défensive est composée de 2 joueurs. Cette formation a un rang (de 1 à 4 seulement).</description>
+  </meta>
+  <management>
+    <persons>
+      <person id="P7ea644d7f44c4dad9bc8768a1ec6f5eb">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <tasks />
+    <requirements />
+    <issues />
+    <to-dos />
+  </management>
+  <glossary />
+  <types>
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <type id="double" tid="" name="double" description="" nullable="false" />
+      <type id="DateTime" tid="" name="DateTime" description="" nullable="false" />
+    </custom-types>
+  </types>
+  <filters />
+  <items>
+    <item id="di504080266534716823" cid="C004" type="class" name="Équipe" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 13:39:07">
+      <stereotypes />
+      <tagged-values />
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <attributes>
+        <attribute id="a82347d899ddf49d2ad5d1deefd30a207263" name="nom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+        <attribute id="afd0e18f34c404ed0a69885101373931e963" name="Coach" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+        <attribute id="a303f9ac1dd194015814f102dcfc7962d289" name="Assistant" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+        <attribute id="aea77347514a84cddae35c1f69bfebede746" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="gardiens" multiplicity="*" />
+        <attribute id="abe1dd09f7c074a95a07f456d5e478469694" name="Capitaine" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+        <attribute id="aafd0bdc12b7944d4b10fb0b46cf2f43e477" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="FormationAttaquante" multiplicity="*" />
+        <attribute id="ad82aacde85184367a166eebf72c1e3cc405" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="FormationDefensive" multiplicity="*" />
+        <attribute id="a8041944f3a564a5388322e3fefd282e8994" name="formationActive" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+        <attribute id="a8fc3012202e04d3ab35569c2660ea84d643" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="Formations" multiplicity="*" />
+      </attributes>
+      <operations>
+        <operation id="o0c4351ebf05d4f5081478e131bde0b62911" name="Verification" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+          <source-codes />
+        </operation>
+      </operations>
+      <template-parameters>
+        <source-codes />
+      </template-parameters>
+    </item>
+  </items>
+  <models>
+    <model id="p181021210393235142" name="Model 1" type="model" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>04/12/2015 13:38:14</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <tagged-values />
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-class" id="p649476958637702316" name="ClassDiagram1" order-index="1" show-nullability="true" show-attributes="true" show-operations="true" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>04/12/2015 13:38:14</creation-date>
+          <change-date>04/12/2015 22:03:34</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <tagged-values />
+        <abstract-items>
+          <item id="di859368970647459681" cid="C012" type="class" name="Coach" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:29:05">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations>
+              <operation id="od7f0be9290d4425ba419f562466b112f773" name="ajouterJoueur" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+              <operation id="oab9393b63d394dd49eb6f25ab3b11e75918" name="retirerJoueur" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+            </operations>
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di277568461210391097" cid="C013" type="class" name="Assistant" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:29:14">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di963181373991213092" cid="C014" type="class" name="Formation" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:48:13">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="ab2c7bda124ac4fe0b04244dae1138834185" name="nom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+              <attribute id="ad85cd8574f3d4d249e591360fe80e58425" name="attaque" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+              <attribute id="ac1a92029b53347ec98f27660bbdb045f695" name="defense" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a137c4758b7174f04b98e88b3ec75e260866" name="gardien" type="" type-id="" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di527964223797147115" cid="GNR008" type="generalization" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:48:41">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di695721561266516829" cid="C016" type="class" name="Formation defensive" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:48:41">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="aac642674c8824d1985a24b4035d0d57a349" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="joueurs" multiplicity="*" />
+              <attribute id="a1ccf688bc5db491da256b2834ed7aa88327" name="nom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations>
+              <operation id="obad8e27197dd45a0815332af4ab58caf997" name="ChangerDuo" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+            </operations>
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di819933828885368907" cid="C010" type="class" name="Personne" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="04/12/2015 16:21:15">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="a6d48dce8341a4862850e31eb9a97aeee974" name="prenom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a84e6af072af34c43bad26b6304ef5e00310" name="nom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a158e6ff397404b04b65a59f9644a0eb5618" name="taille" type="double" type-id="double" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a7b9c2966f5734d64977658eae2af7258944" name="naissance" type="DateTime" type-id="DateTime" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations />
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di847150367503950189" cid="C011" type="class" name="Joueur" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:28:48">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="a1346eca5498443d68097914852ba09b3956" name="position" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a90241508ce064bbab6d5016bb726435d555" name="équipe" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a2b7c7acbde53433e9d70e5ce74392f10954" name="capitaine" type="Boolean" type-id="Uml.Boolean" visibility="private" abstract="false" virtual="false" />
+              <attribute id="a5b53dea13c784aa6a03b3dfcf5fc9084207" name="gardien" type="Boolean" type-id="Uml.Boolean" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations>
+              <operation id="o867a5e4fa43c4e3c9f7a8cb3334ca8b2280" name="getDescription" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+            </operations>
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di985052464193489813" cid="GNR004" type="generalization" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:28:48">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di357342335461167538" cid="GNR005" type="generalization" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:29:05">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di813326668106229010" cid="GNR006" type="generalization" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:29:14">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di169609781349885452" cid="C015" type="class" name="Formation Attaquante" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:48:31">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes>
+              <attribute id="a092369caf1ef4868b34d6cceae98f349510" name="" type="" type-id="" visibility="private" abstract="false" virtual="false" default-value="joueurs" multiplicity="*" />
+              <attribute id="a0f2a699f5ae34b7eb813f9babab6c10f604" name="nom" type="String" type-id="Uml.String" visibility="private" abstract="false" virtual="false" />
+            </attributes>
+            <operations>
+              <operation id="o43d62f16fc7f4c57a2ab35b986b2fe60378" name="ChangerTrio" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+            </operations>
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di985970463327129921" cid="GNR007" type="generalization" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 16:48:31">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di122512037422678002" cid="C017" type="class" name="management" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 21:44:26">
+            <stereotypes>
+              <stereotype name="interface" />
+            </stereotypes>
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <attributes />
+            <operations>
+              <operation id="o76f744decfb74b09af0b5096f7ce4270978" name="formationAttaquante" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+              <operation id="odb2afc425cf74d76a5f43574fd9341d2638" name="formationDefensive" type="" type-id="" visibility="public" abstract="false" virtual="false" static="false">
+                <source-codes />
+              </operation>
+            </operations>
+            <template-parameters>
+              <source-codes />
+            </template-parameters>
+          </item>
+          <item id="di579717459822903075" cid="DEP001" type="dependency" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 21:45:13">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di602604647144813606" cid="DEP002" type="dependency" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ea644d7f44c4dad9bc8768a1ec6f5eb" creation-date="04/12/2015 21:45:21">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di819933828885368907" iid="4eed1f19d2054d46bd823cbe7a290020" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:21:15" order-index="6" type="entity">
+            <layout ax="29.95245" ay="119.6944" awidth="147" aheight="160" x="29.95245" y="119.6944" width="147" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di847150367503950189" iid="fa98afb10d28487f933aa7ee06cd21da" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:28:48" order-index="7" type="entity">
+            <layout ax="39.3092" ay="467.9359" awidth="140" aheight="160" x="39.3092" y="467.9359" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di985052464193489813" iid="f271570df00e44a1a7f87119c2d99a75" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:28:48" order-index="8" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="108" y1="468" x2="104" y2="280" start-border-pos="0.121984795161656" end-border-pos="0.623453036457503">
+              <points>
+                <point x="108" y="468" />
+                <point x="104" y="280" />
+              </points>
+            </layout>
+            <relation from="di847150367503950189" from-iid="fa98afb10d28487f933aa7ee06cd21da" to="di819933828885368907" to-iid="4eed1f19d2054d46bd823cbe7a290020" />
+          </item>
+          <item id="di859368970647459681" iid="97daf939afbd4a318285204f58ae978e" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:29:05" order-index="9" type="entity">
+            <layout ax="477.9977" ay="465.4329" awidth="140" aheight="160" x="477.9977" y="465.4329" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di357342335461167538" iid="e060f79cc10f41c0abb404720597932a" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:29:05" order-index="10" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="478" y1="490" x2="177" y2="257" start-border-pos="0.961684083938599" end-border-pos="0.463908052444458">
+              <points>
+                <point x="478" y="490" />
+                <point x="177" y="257" />
+              </points>
+            </layout>
+            <relation from="di859368970647459681" from-iid="97daf939afbd4a318285204f58ae978e" to="di819933828885368907" to-iid="4eed1f19d2054d46bd823cbe7a290020" />
+          </item>
+          <item id="di277568461210391097" iid="1b67df5c49bd415dbcb521eb25eae04f" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:29:14" order-index="11" type="entity">
+            <layout ax="243.2673" ay="467.2173" awidth="140" aheight="160" x="243.2673" y="467.2173" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di813326668106229010" iid="b8f5a053c70d46ec88713c7553da0afe" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:29:14" order-index="12" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="265" y1="467" x2="151" y2="280" start-border-pos="0.0380672999790737" end-border-pos="0.544460296630859">
+              <points>
+                <point x="265" y="467" />
+                <point x="151" y="280" />
+              </points>
+            </layout>
+            <relation from="di277568461210391097" from-iid="1b67df5c49bd415dbcb521eb25eae04f" to="di819933828885368907" to-iid="4eed1f19d2054d46bd823cbe7a290020" />
+          </item>
+          <item id="di963181373991213092" iid="269f664bbd794931a3a10d169ee2ff09" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:48:13" order-index="13" type="entity">
+            <layout ax="906.4736" ay="208.0241" awidth="140" aheight="160" x="906.4736" y="208.0241" width="140" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di169609781349885452" iid="5f5d6294c5df4b61959f0d1579ced2e7" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:48:31" order-index="14" type="entity">
+            <layout ax="758.9207" ay="450.6481" awidth="181" aheight="160" x="758.9207" y="450.6481" width="181" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di985970463327129921" iid="9655499fc45148d3a8cdff82b2e707db" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:48:31" order-index="15" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="891" y1="451" x2="934" y2="368" start-border-pos="0.182168612822643" end-border-pos="0.70050779070173">
+              <points>
+                <point x="891" y="451" />
+                <point x="934" y="368" />
+              </points>
+            </layout>
+            <relation from="di169609781349885452" from-iid="5f5d6294c5df4b61959f0d1579ced2e7" to="di963181373991213092" to-iid="269f664bbd794931a3a10d169ee2ff09" />
+          </item>
+          <item id="di695721561266516829" iid="72d9338cc6174058b4a025bf4dd6da90" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:48:41" order-index="16" type="entity">
+            <layout ax="1009.474" ay="450.6481" awidth="169" aheight="160" x="1009.474" y="450.6481" width="169" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di527964223797147115" iid="b8e666dbde064707a024baca073ed551" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 16:48:41" order-index="17" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="1055" y1="451" x2="1015" y2="368" start-border-pos="0.0675718770224667" end-border-pos="0.556474849155971">
+              <points>
+                <point x="1055" y="451" />
+                <point x="1015" y="368" />
+              </points>
+            </layout>
+            <relation from="di695721561266516829" from-iid="72d9338cc6174058b4a025bf4dd6da90" to="di963181373991213092" to-iid="269f664bbd794931a3a10d169ee2ff09" />
+          </item>
+          <item id="di122512037422678002" iid="54c4be5ba852468091f3cc8dfd1047d3" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 21:44:26" order-index="18" type="entity">
+            <layout ax="385.7213" ay="208.0241" awidth="165" aheight="160" x="385.7213" y="208.0241" width="165" height="160" angle="0" />
+            <class />
+          </item>
+          <item id="di579717459822903075" iid="afe6bf13150f4af4a88ae13a129bc8cc" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 21:45:13" order-index="19" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="420" y1="368" x2="361" y2="467" start-border-pos="0.697875282981179" end-border-pos="0.210016250610352">
+              <points>
+                <point x="420" y="368" />
+                <point x="361" y="467" />
+              </points>
+            </layout>
+            <relation from="di122512037422678002" from-iid="54c4be5ba852468091f3cc8dfd1047d3" to="di277568461210391097" to-iid="1b67df5c49bd415dbcb521eb25eae04f" />
+          </item>
+          <item id="di602604647144813606" iid="f9a12bcbce7a4b5aa3abf7696bd8b60f" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 21:45:21" order-index="20" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" auto-path="" x1="493" y1="368" x2="523" y2="465" start-border-pos="0.587603852243134" end-border-pos="0.0805349622453962">
+              <points>
+                <point x="493" y="368" />
+                <point x="523" y="465" />
+              </points>
+            </layout>
+            <relation from="di122512037422678002" from-iid="54c4be5ba852468091f3cc8dfd1047d3" to="di859368970647459681" to-iid="97daf939afbd4a318285204f58ae978e" />
+          </item>
+          <item id="di504080266534716823" iid="899acac11a894dafa878516352cb92b1" show-cid="false" show-parent-name="false" show-stereotypes="false" show-tagged-values="false" creation-date="04/12/2015 13:39:07" order-index="3" type="entity">
+            <layout ax="606.9207" ay="-34.64051" awidth="152" aheight="277" x="606.9207" y="-34.64051" width="152" height="277" angle="0" />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+  <documents />
+  <document-templates />
+</sim-project>

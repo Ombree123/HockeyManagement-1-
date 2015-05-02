@@ -1,0 +1,81 @@
+AGA
+test2
+234
+2015/04/30
+ailierGaucheA
+Les Tamouls d'Arabie
+False
+False
+100
+ADA
+test3
+232
+2015/04/30
+ailierDroitA
+Les Tamouls d'Arabie
+False
+False
+53
+Charles
+Marchand
+180
+2015/04/30
+millieu
+Les Tamouls d'Arabie
+False
+True
+87
+testtt
+bugg5
+243
+2015/04/30
+millieu
+Les Tamouls d'Arabie
+False
+False
+100
+teststt
+bugg6
+304
+2015/04/30
+millieu
+Les Tamouls d'Arabie
+False
+False
+95
+ADD
+one
+23
+2015/04/30
+ailierDroitD
+Les Tamouls d'Arabie
+False
+False
+91
+AGD
+test4444
+2343
+2015/04/30
+ailierGaucheD
+Les Tamouls d'Arabie
+False
+False
+11
+test324
+t4wst4t
+24
+2015/04/30
+millieu
+Les Tamouls d'Arabie
+False
+False
+100
+Even
+Handler
+233
+2015/04/30
+ailierGaucheA
+Les Tamouls d'Arabie
+False
+False
+4
