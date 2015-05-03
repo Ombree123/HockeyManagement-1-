@@ -12,9 +12,9 @@ namespace HockeyManagement
 {
     public partial class Form5 : Form
     {
-        string formation = "";
-        bool formationA = false, formationD = false, formationG = false, nouveau = true;
-        List<string> _source = new List<string>();
+        string nom, formA="", formD="", formG="";
+        bool formationA = false, formationD = false, formationG = false;
+        List<string> _source = new List<string>(), _sources = new List<string>();
 
         public Form5()
         {
@@ -24,11 +24,9 @@ namespace HockeyManagement
         public Form5(string formation)
         {
             InitializeComponent();
-            this.formation = formation;
-            nouveau = false;
             string[] lines = new string[] { };
             nomB.Text = formation;
-            int counter=0, index = 0;
+            int counter = 0;
 
             lines = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formations.txt");
 
@@ -49,7 +47,6 @@ namespace HockeyManagement
 
             formationActive.DataSource = null;
             formationActive.DataSource = _source;
-            nouveau = false;
         }
 
 
@@ -61,7 +58,30 @@ namespace HockeyManagement
 
         private void confirmer_Click(object sender, EventArgs e)
         {
+            if (formationA && formationD && formationG)
+            {
 
+                var forG = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\Equipe.txt");
+                var forA = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationA.txt");
+                var forD = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationD.txt");
+
+                nom = nomB.Text;
+
+                foreach( string lines in _sources)
+                {
+                    if (forG.Contains(lines))
+                        this.formG = lines;
+
+                    if (forA.Contains(lines))
+                        this.formA = lines;
+
+                    if (forD.Contains(lines))
+                        this.formD = lines;
+                }
+                
+            }
+                Formation forma = new Formation(nom, formA, formD, formG);
+                this.Close();
         }
 
         private void RadioA_CheckedChanged(object sender, EventArgs e)
@@ -92,6 +112,8 @@ namespace HockeyManagement
 
         private void RadioD_CheckedChanged(object sender, EventArgs e)
         {
+            _source = new List<string>();
+
             if (File.Exists(@Directory.GetCurrentDirectory() + "\\formationD.txt"))
             {
                 _source = new List<string>();
@@ -128,6 +150,8 @@ namespace HockeyManagement
 
         private void RadioG_CheckedChanged(object sender, EventArgs e)
         {
+            _source = new List<string>();
+
             var lines = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\Equipe.txt");  //Fix Double Occurence Bug
             List<int> _gardiens = new List<int>();
             int index = 0;
@@ -154,15 +178,14 @@ namespace HockeyManagement
 
         private void ajouter_Click(object sender, EventArgs e)
         {
-            if (formationActive.GetItemText(formationActive.SelectedItem) != "" || nouveau)
+            if (RadioA.Checked || RadioD.Checked || RadioG.Checked)
             {
                 if (RadioA.Checked)
                 {
                     if(!formationA)
                     {
-                      _source.Add(formationActive.GetItemText(formationActive.SelectedItem));
+                      _sources.Add(formationsItems.GetItemText(formationsItems.SelectedItem));
                       formationA = true;
-                      nouveau = false;
                     } 
                     else
                         MessageBox.Show("Vous avez déjà une formation attaquante dans votre formation active");
@@ -172,9 +195,8 @@ namespace HockeyManagement
                 {
                     if(!formationD)
                     {
-                      _source.Add(formationActive.GetItemText(formationActive.SelectedItem));
+                      _sources.Add(formationsItems.GetItemText(formationsItems.SelectedItem));
                       formationD = true;
-                      nouveau = false;
                     }
                     else
                         MessageBox.Show("Vous avez déjà une formation defensive dans votre formation active");
@@ -184,9 +206,8 @@ namespace HockeyManagement
                 {
                     if(!formationG)
                     {
-                        _source.Add(formationActive.GetItemText(formationActive.SelectedItem));
+                        _sources.Add(formationsItems.GetItemText(formationsItems.SelectedItem));
                         formationG = true;
-                        nouveau = false;
                     }
                     else
                         MessageBox.Show("Vous avez déjà un gardien dans votre formation active");
@@ -195,12 +216,38 @@ namespace HockeyManagement
             }
             else
                 MessageBox.Show("Vous devez avoir une selection active");
-        }
+
+            formationActive.DataSource = null;
+            formationActive.DataSource = _sources;
         }
 
         private void retirer_Click(object sender, EventArgs e)
         {
-            
+            string aRetirer = formationActive.GetItemText(formationActive.SelectedItem);
+
+            var formationG = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\Equipe.txt");
+            var formationA = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationA.txt");
+            var formationD = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationD.txt");
+
+            if (formationG.Contains(aRetirer))
+                this.formationG = false;
+
+            if (formationA.Contains(aRetirer))
+                this.formationA = false;
+
+            if (formationD.Contains(aRetirer))
+                this.formationD = false;
+
+            _sources.Remove(aRetirer);
+
+            formationActive.DataSource = null;
+            formationActive.DataSource = _sources;
+
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
