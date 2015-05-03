@@ -19,3 +19,4 @@ C:\Users\some\Desktop\HockeyManagement(1)\HockeyManagement\HockeyManagement\obj\
 C:\Users\some\Desktop\HockeyManagement(1)\HockeyManagement\HockeyManagement\obj\x86\Debug\HockeyManagement.Properties.Resources.resources
 C:\Users\some\Desktop\HockeyManagement(1)\HockeyManagement\HockeyManagement\obj\x86\Debug\HockeyManagement.csproj.GenerateResource.Cache
 C:\Users\some\Desktop\HockeyManagement(1)\HockeyManagement\HockeyManagement\obj\x86\Debug\HockeyManagement.Form4.resources
+C:\Users\some\Desktop\HockeyManagement(1)\HockeyManagement\HockeyManagement\obj\x86\Debug\HockeyManagement.Form5.resources

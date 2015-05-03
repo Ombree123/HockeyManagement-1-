@@ -16,6 +16,7 @@ namespace HockeyManagement
         int index = 0;
         bool nouveau = true;
         int current = 0;
+        string formation = "";
 
         public Form4()
         {
@@ -26,6 +27,48 @@ namespace HockeyManagement
         {
             InitializeComponent();
             this.current = current;
+        }
+
+        public Form4(string formation, int current)
+        {
+            InitializeComponent();
+            this.current = current;
+            this.formation = formation;
+            int counter = -1;
+            string[] lines = new string[] { };
+
+            if (current == 2)
+            {
+                StreamReader file = new StreamReader(@Directory.GetCurrentDirectory() + "\\formationA.txt");
+                lines = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationA.txt");
+                file.Close();
+            }
+
+            if (current == 3)
+            {
+                StreamReader file = new StreamReader(@Directory.GetCurrentDirectory() + "\\formationD.txt");
+                lines = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formationD.txt");
+                file.Close();
+            }
+            
+
+            foreach (string line in lines)
+            {
+                counter++;
+
+                if (line == formation)
+                {
+                    for (int i = 1; i <= 3; ++i)
+                    {
+                        _source.Add(lines[counter + i]);
+                    }
+                }
+            }            
+            
+            formationActive.DataSource = null;
+            formationActive.DataSource = _source;
+            nouveau = false;
+            index = 3;
         }
 
         private void label2_Click(object sender, EventArgs e)

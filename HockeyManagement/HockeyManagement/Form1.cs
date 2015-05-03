@@ -133,7 +133,7 @@ namespace HockeyManagement
 
                         counter++;
 
-                        if (counter == 4)
+                        if (counter == 3)
                         {
                             counter = 0;
                         }
@@ -155,7 +155,40 @@ namespace HockeyManagement
             #region refreshFormations
             if (current == 4)
             {
+                if (File.Exists(@Directory.GetCurrentDirectory() + "\\formations.txt"))
+                {
+                    _items = new List<string>();
 
+                    StreamReader file = new StreamReader(@Directory.GetCurrentDirectory() + "\\formations.txt");
+
+                    var lines = File.ReadAllLines(@Directory.GetCurrentDirectory() + "\\formations.txt");
+                    int counter = 0;
+
+                    foreach (string line in lines)
+                    {
+                        if (counter == 0)
+                        {
+                            _items.Add(line);
+                        }
+
+                        counter++;
+
+                        if (counter == 4)
+                        {
+                            counter = 0;
+                        }
+                    }
+
+                    listBox1.DataSource = _items;
+                    file.Close();
+                }
+                else
+                {
+                    using (StreamWriter w = File.AppendText(@Directory.GetCurrentDirectory() + "\\formations.txt"))
+                    {
+
+                    }
+                }
             }
             #endregion
 
@@ -304,7 +337,9 @@ namespace HockeyManagement
 
             if (current == 4)
             {
-
+                var form5 = new Form5();
+                form5.FormClosed += new FormClosedEventHandler(Closed_Form);
+                form5.Show();
             }
         }
 
@@ -428,17 +463,23 @@ namespace HockeyManagement
 
             if (current == 2)
             {
-
+                var form4 = new Form4(listBox1.GetItemText(listBox1.SelectedItem), current);
+                form4.FormClosed += new FormClosedEventHandler(Closed_Form);
+                form4.Show();
             }
 
             if (current == 3)
             {
-
+                var form4 = new Form4(listBox1.GetItemText(listBox1.SelectedItem), current);
+                form4.FormClosed += new FormClosedEventHandler(Closed_Form);
+                form4.Show();
             }
 
             if (current == 4)
             {
-
+                var form5 = new Form5(listBox1.GetItemText(listBox1.SelectedItem));
+                form5.FormClosed += new FormClosedEventHandler(Closed_Form);
+                form5.Show();
             }
         }
     }
